@@ -4,6 +4,36 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <script></script>
+        <script>
+            function getComputerChoice() {
+                const choices = ["Rock", "Paper", "Scissors"];
+                let randomNumber = Math.floor(Math.random() * 3);
+                let choice = choices[randomNumber];
+                return choice;
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                playerSelection = "Rock";
+                if (computerSelection == "Paper" && playerSelection == "Rock") {
+                    // message = "You Lose! Paper beats Rock.";
+                    message = `You Lose! ${computerSelection} beats ${playerSelection}.`;
+                } else if (computerSelection == "Scissors" && playerSelection == "Rock") {
+                    // message = "You Win! Rock beats Scissors.";
+                    message = `You Win! ${playerSelection} beats ${computerSelection}.`;
+                } else if (computerSelection == "Rock" && playerSelection == "Rock") {
+                    // message = "It's a Draw! It's Rock vs Rock.";
+                    message = `It's a Draw! It's ${computerSelection} vs ${playerSelection}.`;
+                } else {
+                    message = "Sorry! There's no response.";
+                }
+
+                return message;
+            }
+
+            let playerSelection = "ROCK";
+            let computerSelection = getComputerChoice();
+
+            console.log(playRound(playerSelection, computerSelection));
+        </script>
     </body>
 </html>
